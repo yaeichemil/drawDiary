@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw Diary</title>
+
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    
+    <!-- 헤더 -->
+    <header>
+
+        <div class="header-logo">
+            <img class="logo-icon" src="./img/header/로고.png" alt="Draw Diary 로고">
+            <img class="logo-text" src="./img/header/로고_문자.png" alt="Draw Diary 텍스트">
+        </div>
+
+        <nav class="header-nav">
+            <a href="#preview">PREVIEW</a>
+            <a href="#process">PROCESS</a>
+            <a href="#service">SERVICE</a>
+            <a href="#features">FEATURES</a>
+        </nav>
+
+
+    </header>
+
+    
+
+
+    <main>
+
+
+
+        <!-- 메인 비주얼 -->
+        <section class="main-section">
+
+            <div class="main-text">
+                <p class="main-subtitle">
+                    일상을 그림으로 바꾸는 30초,
+                </p>
+
+                <h1 class="main-title">
+                    Draw Diary
+                </h1>
+
+                <p class="main-desc">
+                    그림일기로 나의 하루를 가볍게,
+                    <br>
+                    그리고 따뜻하게 기록해요.
+                </p>
+
+                <button class="download-btn">
+                    <img src="./img/main/앱_다운로드_버튼.png" alt="앱 다운로드 버튼">
+                </button>
+            </div>
+
+
+            <div class="main-image">
+                <img src="./img/main/메인.svg" alt="키 비주얼">
+            </div>
+
+        </section>
+
+
+
+
+        <!-- 스토리텔링 -->
+        <section class="story-section">
+
+            <!-- 라인 드로잉 -->
+            <img class="story-line" src="./img/story/스토리_선.svg" alt="스토리 연결선">
+
+
+            <!-- 1번째 이야기 -->
+             <div class="story-item story-item-1">
+                <img src="./img/story/스토리1.png" alt="스토리1">
+                <p>
+                    우리는 일기를 쓰고 싶어도,<br>
+                    쉽게 지쳐버립니다.
+                </p>
+             </div>
+
+              <!-- 2번째 이야기 -->
+             <div class="story-item story-item-2">
+                <div class="story-bubble-box">
+                    <img class="story-bubble" src="./img/story/스토리_말풍선.png" alt="말풍선">
+                    <p>
+                        그럼 누군가 내 하루를 대신 기록해주고,<br>
+                        그 속 감정까지 알려준다면 어떨까요?
+                    </p>
+                </div>
+                <img class="story-photo" src="./img/story/스토리2.png" alt="스토리2">
+            </div>
+
+             <!-- 3번째 이야기 -->
+            <div class="story-item story-item-3">
+                <img src="./img/story/스토리3.png" alt="스토리3">
+                <p>
+                    더 이상 긴 글을 써야 한다는 부담도,<br>
+                    무슨 말을 적어야 할지 막막해 할 필요도 없습니다.<br><br>
+                    텍스트 대신 감정을 담은 그림으로,<br>
+                    당신의 하루를 더 자연스럽게 기록해보세요.
+                </p>
+            </div>
+
+             <!-- 4번째 이야기 -->
+            <div class="story-item story-item-4">
+                <p>
+                    하루 30초면 평범한 일상도<br>
+                    감각적인 장면이 되고,<br><br>
+                    SNS에 공유하고 싶어지는<br>
+                    하나의 작품으로 완성됩니다.
+                </p>
+                <img src="./img/story/스토리4.png" alt="완성된 그림일기">
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- 영상 -->
+        <section class="video-section" id="preview">
+
+            <img src="./img/video/영상.png" alt="서비스 소개 영상">
+
+        </section>
+
+
+
+
+
+        <!-- 사용 체험 -->
+        <!-- <section class="experience-section">
+
+            
+            <div class="experience-intro">
+                <p class="section-label">Experience</p>
+
+                <h2>
+                    오늘 하루 잘 보내셨나요?<br>
+                    직접 앱을 켜서 그림일기를 만들어보세요.
+                </h2>
+            </div>
+
+
+            
+            <div class="experience-demo">
+
+                
+                <div class="experience-steps">
+
+                    <div class="experience-step" data-step="1">
+                        <span>1</span>
+                        <p>
+                            <strong>장소 선택</strong><br>
+                            오늘의 장소를 선택해보세요.
+                        </p>
+                    </div>
+
+                    <div class="experience-step" data-step="2">
+                        <span>2</span>
+                        <p>
+                            <strong>활동 선택</strong><br>
+                            해당 장소에서 한 활동을 골라보세요.
+                        </p>
+                    </div>
+
+                    <div class="experience-step" data-step="3">
+                        <span>3</span>
+                        <p>
+                            <strong>감정 선택</strong><br>
+                            무슨 감정이 들었는지 알려주세요.
+                        </p>
+                    </div>
+
+                    <div class="experience-step" data-step="4">
+                        <span>4</span>
+                        <p>
+                            <strong>한 줄 기록</strong><br>
+                            오늘의 일기를 한 줄 적어주세요.
+                        </p>
+                    </div>
+
+                </div> -->
+
+
+            <!-- 임시 -->
+               <!-- 폰 목업 / 체험 프로토타입 영상 -->
+                <!-- <div class="phone-mockup experience-phone">
+                    <video class="experience-prototype-video" autoplay muted loop playsinline controls>
+                        <source src="./img/experience/prototype.mp4" type="video/mp4">
+                    </video>
+                </div> -->
+
+                <!-- 발표용 임시 프로토타입 영상 -->
+                <div class="experience-temp-video-box">
+                    <video class="experience-temp-video" autoplay muted loop playsinline controls>
+                        <source src="./img/experience/prototype.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+        <!-- 서비스 배경 -->
+        <section class="overview-section" id="process">
+
+            <div class="overview-intro">
+                <p class="section-label">Overview</p>
+                <h2>
+                    빠른 시대 속에서 사람들은 오히려<br>
+                    진짜 위로와 감정에 집중하기 시작했습니다.
+                </h2>
+            </div>
+
+
+            <div class="overview-map">
+
+                <img class="overview-main-image" src="./img/overview/오버뷰사진.png" alt="오버뷰">
+
+                <div class="overview-keyword keyword-health">
+                   
+                    <div class="keyword-desc">
+                        <img src="./img/overview/건강지능설명란.png" alt="">
+                        <p>
+                            건강에 대한 정보,<br>
+                            지식을 데이터로<br>
+                            관리하고 분석하는<br>
+                            지능도 중요하죠.
+                        </p>
+                    </div>
+
+                    <img class="keyword-button"
+                        src="./img/overview/건강지능.png"
+                        alt="건강 지능">
+
+                    <img class="keyword-line" 
+                        src="./img/overview/건강지능연결선.png"
+                        alt="연결선">
+                </div>
+
+                <!-- 복사 -->
+
+                <div class="overview-keyword keyword-household">
+
+                    <div class="keyword-desc">
+                        <img src="./img/overview/일점오가구설명란.png" alt="">
+                        <p>
+                            혼자 살지만 함께, <span>함께</span> <br>
+                            있으면서도 독립적인 형태의<br>
+                            가구가 흥하고 있어요.
+                        </p>
+                    </div>
+
+                    <img class="keyword-button"
+                        src="./img/overview/일점오가구.png"
+                        alt="1.5 가구">
+
+                    <img class="keyword-line"
+                        src="./img/overview/일점오가구연결선.png"
+                        alt="연결선">
+                </div>
+
+
+                <div class="overview-keyword keyword-readycore">
+
+                    <img class="keyword-button"
+                        src="./img/overview/레디코어.png"
+                        alt="레디코어">
+
+                    <img class="keyword-line"
+                        src="./img/overview/레디코어연결선.png"
+                        alt="연결선">
+
+                    <div class="keyword-desc">
+                        <img src="./img/overview/레디코어설명란.png" alt="">
+                        <p>
+                            준비는 곧 생존력! <span>불안한</span> 시대<br>
+                            속에서 나에게 도움이 될 만한 것<br>
+                            을 준비해야 하는 현대 사회예요.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="overview-keyword keyword-feelconomy">
+
+                    <img class="keyword-button"
+                        src="./img/overview/필코노미.png"
+                        alt="필코노미">
+
+                    <img class="keyword-line"
+                        src="./img/overview/필코노미연결선.png"
+                        alt="연결선">
+
+                    <div class="keyword-desc">
+                        <img src="./img/overview/필코노미설명란.png" alt="">
+                        <p>
+                            <span>기분</span>이 곧 소비의 기준이<br>
+                            자, 만족감이 합리성을<br>
+                            이기는 시대가 찾아왔어요.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="overview-bottom-text">
+                    <p>
+                        사람들은 여전히,<br>
+                        <span>감정</span>을 기반으로 살아가고 있어요.
+                    </p>
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+
+
+        <!-- 근거 자료 / 인사이트 -->
+        <section class="insight-section">
+
+            <div class="insight-intro">
+                <p class="section-label">Insight</p>
+
+                <h2>
+                    우리는 바쁜 일상 속 부담 없이 하루의 감정과<br>
+                    경험을 남길 수 있는 가벼운 기록 방식을 원해요.
+                </h2>
+            </div>
+
+            <div class="insight-chart-box">
+                <img class="insight-chart-left" src="./img/insight/인사이트_L.png" alt="일기를 작성하지 않는 이유 그래프">
+                <img class="insight-chart-right" src="./img/insight/인사이트_R.png" alt="그림일기 앱 선호 기능 그래프">
+            </div>
+
+        </section>
+
+
+
+        <!-- 해결 방법 / Solution -->
+        <section class="solution-section">
+
+            <div class="solution-intro">
+                <p class="section-label">Solution</p>
+
+                <h2>
+                    각종 문제에도 어려움 없이,<br>
+                    Draw Diary 와 함께 나아가요 :)
+                </h2>
+            </div>
+
+            <div class="solution-list">
+
+                <div class="solution-card">
+                    <h3>지속성 문제</h3>
+                    <p>
+                        작심삼일은 이제 그만!<br>
+                        몇 번의 선택만으로 일기가<br>
+                        완성되도록 도와줄게요
+                    </p>
+                    <img src="./img/solution/솔루션1.png" alt="지속성 문제">
+                    <div class="solution-marker"></div>
+                    <strong>꾸준한 기록 습관</strong>
+                    <p>
+                        일기를 짧고 즐겁게,<br>
+                        꾸준한 기록 습관을 형성해요.
+                    </p>
+                </div>
+
+                <div class="solution-card">
+                    <h3>시간 부족</h3>
+                    <p>
+                        바쁜 일상 속에서도<br>
+                        30초면 충분해요.<br>
+                        빠르고 간편하게 기록해요.
+                    </p>
+                    <img src="./img/solution/솔루션2.png" alt="시간 부족">
+                    <div class="solution-marker"></div>
+                    <strong>30초 기록</strong>
+                    <p>
+                        짧은 시간으로 부담 없이<br>
+                        매일 기록 가능해요.
+                    </p>
+                </div>
+
+                <div class="solution-card">
+                    <h3>기록의 진입장벽</h3>
+                    <p>
+                        무엇을 써야 할지 고민 끝!<br>
+                        질문과 가이드로<br>
+                        쉽게 시작할 수 있어요.
+                    </p>
+                    <img src="./img/solution/솔루션3.png" alt="기록의 진입장벽">
+                    <div class="solution-marker"></div>
+                    <strong>쉬운 시작</strong>
+                    <p>
+                        질문 가이드로 쉽게 시작하고<br>
+                        부담없이 기록할 수 있어요.
+                    </p>
+                </div>
+
+                <div class="solution-card">
+                    <h3>기록 방식 변화</h3>
+                    <p>
+                        글 대신 그림으로<br>
+                        나만의 방식으로<br>
+                        마음과 순간을 담아요.
+                    </p>
+                    <img src="./img/solution/솔루션4.png" alt="기록 방식 변화">
+                    <div class="solution-marker"></div>
+                    <strong>나만의 그림 일기장</strong>
+                    <p>
+                        그림으로 표현하는 자유,<br>
+                        나만의 감성으로 기록해요.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+        <!-- 앱 화면 흐름 / Screenflow -->
+        <section class="screenflow-section" id="service">
+
+             <div class="screenflow-intro">
+                <p class="section-label">Scenario</p>
+
+                <h2>
+                    30초, 5단계로 하루를 기록해요.<br>
+                    장소, 활동, 감정 딱 세 가지만 있다면 충분해요.
+                </h2>
+            </div>
+
+
+            <div class="screenflow-list">
+
+                <div class="screen-item">
+                    <img src="./img/screenflow/시나리오1.png" alt="장소 선택 화면">
+                </div>
+
+                <div class="screen-item">
+                    <img src="./img/screenflow/시나리오2.png" alt="활동 선택 화면">
+                </div>
+
+                <div class="screen-item">
+                    <img src="./img/screenflow/시나리오3.png" alt="감정 선택 화면">
+                </div>
+
+                <div class="screen-item">
+                    <img src="./img/screenflow/시나리오4.png" alt="하루 작성 화면">
+                </div>
+
+                <div class="screen-item">
+                    <img src="./img/screenflow/시나리오5.png" alt="완성 확인 화면">
+                </div>
+
+            </div>
+
+            <div class="screenflow-progress">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="screenflow-label-list">
+                <p>장소 선택</p>
+                <p>활동 선택</p>
+                <p>감정 선택</p>
+                <p>하루 작성</p>
+                <p>완성 확인</p>
+            </div>
+
+        </section>
+
+
+
+        <!-- 선택형 그림일기 제작 (스크롤 애니메이션) -->
+        <section class="diary-create-section">
+
+            <div class="diary-create-sticky">
+
+                <!-- 왼쪽 텍스트 영역 -->
+                <div class="diary-create-text">
+
+                    <div class="diary-create-copy active" data-feature="1">
+                        <h2>
+                            선택지형<br>
+                            그림 일기 제작
+                        </h2>
+
+                        <p>
+                            적을 필요 없이 단 30초만 있으면 돼요.<br>
+                            오늘의 장소, 행동, 기분을 알려주세요.<br>
+                            그림은 Draw Diary가 그려요.
+                        </p>
+                    </div>
+
+                    <div class="diary-create-copy" data-feature="2">
+                        <h2>
+                            사용자 분석, 캘린더,<br>
+                            하이라이트 기능까지
+                        </h2>
+
+                        <p>
+                            적은 일기가 쌓이고 쌓여서 내 감정 분석에<br>
+                            도움이 돼요. 또 달력과 하이라이트를 보며<br>
+                            추억을 다시 되돌아 볼 수 있어요.
+                        </p>
+                    </div>
+
+                    <div class="diary-create-copy" data-feature="3">
+                        <h2>
+                            일기도 게임처럼,<br>
+                            캐릭터도 맞춤형
+                        </h2>
+
+                        <p>
+                            매일 일기를 적을수록 새로운 소품이 생겨요.<br>
+                            생긴 소품으로 캐릭터를 꾸미고 나만의 캐릭터를<br>
+                            그림 일기에 등장 시켜 보세요.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- 오른쪽 폰 이미지 영역 -->
+                <div class="diary-create-phone">
+
+                    <img class="diary-phone-img active"
+                        src="./img/function/기능1.png"
+                        alt="선택지형 그림일기 제작 화면"
+                        data-feature="1">
+
+                    <img class="diary-phone-img"
+                        src="./img/function/기능2.png"
+                        alt="사용자 분석 캘린더 화면"
+                        data-feature="2">
+
+                    <img class="diary-phone-img"
+                        src="./img/function/기능3.png"
+                        alt="캐릭터 설정 화면"
+                        data-feature="3">
+
+                </div>
+
+
+                <!-- 오른쪽 단계 표시 도트 -->
+                <div class="diary-create-dots">
+                    <button class="active" type="button" data-feature="1" aria-label="첫 번째 기능 보기"></button>
+                    <button type="button" data-feature="2" aria-label="두 번째 기능 보기"></button>
+                    <button type="button" data-feature="3" aria-label="세 번째 기능 보기"></button>
+                </div>
+
+            </div>
+
+        </section>
+        
+
+       <!-- 베네핏 영역 -->
+        <section class="benefit-section">
+
+            <div class="benefit-intro">
+                <p class="section-label">Benefit</p>
+
+                <h2>
+                    일기가 쌓이면 나만의 무드 있는<br>
+                    다이어리를 얻을 수 있어요.
+                </h2>
+            </div>
+
+            <div class="benefit-flow">
+
+                <img class="benefit-line" src="./img/benefit/베네핏 선.png" alt="베네핏 연결선">
+
+                <div class="benefit-card benefit-card-1">
+                    <span class="benefit-number">1</span>
+                    <img src="./img/benefit/베네핏1.png" alt="나만의 기록">
+                    <h3>나만의 기록</h3>
+                    <p>
+                        그림으로 담는<br>
+                        나만의 이야기
+                    </p>
+                </div>
+
+                <div class="benefit-card benefit-card-2">
+                    <span class="benefit-number">2</span>
+                    <img src="./img/benefit/베네핏2.png" alt="습관의 형성">
+                    <h3>습관의 형성</h3>
+                    <p>
+                        짧지만 꾸준한<br>
+                        30초 기록
+                    </p>
+                </div>
+
+                <div class="benefit-card benefit-card-3">
+                    <span class="benefit-number">3</span>
+                    <img src="./img/benefit/베네핏3.png" alt="추억의 보관">
+                    <h3>추억의 보관</h3>
+                    <p>
+                        시간이 지나도<br>
+                        남는 순간들
+                    </p>
+                </div>
+
+                <div class="benefit-card benefit-card-4">
+                    <span class="benefit-number">4</span>
+                    <img src="./img/benefit/베네핏4.png" alt="마음의 변화">
+                    <h3>마음의 변화</h3>
+                    <p>
+                        나를 돌아보고<br>
+                        성장하는 시간
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- 서비스 기능 소개 -->
+        <section class="service-section" id="features">
+
+            <!-- 쉬운 온보딩 -->
+            <div class="service-feature service-feature-1">
+
+                <div class="service-feature-text">
+                    <span class="service-number">1</span>
+
+                    <h2>
+                        쉬운 온보딩으로<br>
+                        알아갈 수 있어요
+                    </h2>
+
+                    <p>
+                        처음 오는 분들을 위해서 쉬운 말로<br>
+                        Draw Diary를 소개해요.<br>
+                        오늘의 그림일기를 쉽게 그려보아요.
+                    </p>
+                </div>
+
+                <div class="service-feature-phone">
+                    <img src="./img/service/서비스1.png" alt="쉬운 온보딩 화면">
+                </div>
+
+            </div>
+
+
+            <!-- 아이디어 친구 추가 -->
+            <div class="service-feature service-feature-2 reverse">
+
+                <div class="service-feature-text">
+                    <span class="service-number">2</span>
+
+                    <h2>
+                        나만의 프라이빗<br>
+                        아이디로 친구 추가
+                    </h2>
+
+                    <p>
+                        Draw Diary에서 주어진 비밀 아이디로<br>
+                        검색하면, 친구 추가를 할 수 있어요.<br>
+                        이제 서로의 그림일기를 공유해 보아요.
+                    </p>
+                </div>
+
+                <div class="service-feature-phone">
+                    <img src="./img/service/서비스2.png" alt="아이디어 친구 추가 화면">
+                </div>
+
+            </div>
+
+
+            <!-- 프로필 꾸미기 -->
+            <div class="service-feature service-feature-3">
+
+                <div class="service-feature-text">
+                    <span class="service-number">3</span>
+
+                    <h2>
+                        나의 이야기로<br>
+                        꾸며진 내 프로필
+                    </h2>
+
+                    <p>
+                        기록한 일기가 쌓이고 쌓여서 색다르고<br>
+                        예쁜 그림일기 피드가 만들어져요.<br>
+                        그림만으로도 추억을 되돌아볼 수 있어요.
+                    </p>
+                </div>
+
+                <div class="service-feature-phone">
+                    <img src="./img/service/서비스3.png" alt="프로필 화면">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+       <!-- CTA / 다운로드 유도 -->
+        <section class="cta-section">
+
+            <div class="cta-content">
+
+                <!-- 왼쪽 텍스트 + 버튼 -->
+                <div class="cta-text">
+                    <h2>
+                        일상을 그림으로<br>
+                        바꾸는 30초,<br>
+                        Draw Diary
+                    </h2>
+
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-store-btn">
+                            <img src="./img/cta/CTA 앱스토어.png" alt="App Store 다운로드">
+                        </a>
+
+                        <a href="#" class="cta-store-btn">
+                            <img src="./img/cta/CTA 구글플레이.png" alt="Google Play 다운로드">
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- 오른쪽 핸드폰 이미지 -->
+                <div class="cta-phone">
+                    <img src="./img/cta/CTA 핸드폰.png" alt="Draw Diary 앱 화면">
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            <img class="footer-logo-icon" src="./img/footer/로고.png" alt="Draw Diary 로고">
+            <img class="footer-logo-text" src="./img/footer/로고_문자.png" alt="Draw Diary 텍스트">
+        </div>
+
+        <div class="footer-member">
+            <p>
+                <strong>DESIGNER</strong><br>
+                정시진
+            </p>
+
+            <p>
+                <strong>DESIGNER</strong><br>
+                이지영
+            </p>
+
+            <p>
+                <strong>PROGRAMMER</strong><br>
+                김예령
+            </p>
+        </div>
+
+    </footer>
+
+
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
