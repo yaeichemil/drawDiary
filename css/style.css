@@ -11,7 +11,7 @@ html {
 
 /* 영상 */
 #preview {
-    scroll-margin-top: -80px;
+    scroll-margin-top: -60px;
 }
 
 /* 오버뷰 */
@@ -277,20 +277,28 @@ header {
 
 /* 영상 섹션 */
 .video-section {
+    margin: 200px 0;
     padding: 80px 100px 0;
     display: flex;
     justify-content: center;
 }
 
-.video-section img {
+.video-section video {
+    border-radius: 20px;
     width: 100%;
-    max-width: 1880px;
+    max-width: 1550px;
 }
 
 /* ===================================== */
 
 /* 사용 체험 섹션 */
+/* .experience-section {
+    padding: 140px 120px 180px;
+} */
+
+
 .experience-section {
+    margin-bottom: 400px;
     padding: 140px 120px 180px;
 }
 

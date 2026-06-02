@@ -1,6 +1,9 @@
 console.log("JS 연결됨");
 
 
+
+
+
 // =====================================
 // 스크롤 등장 애니메이션
 
@@ -23,6 +26,10 @@ const animatedSections = document.querySelectorAll(
 animatedSections.forEach(function(section) {
     sectionObserver.observe(section);
 });
+
+
+
+
 
 
 // =====================================
@@ -80,6 +87,10 @@ window.addEventListener("scroll", function() {
 
     changeDiaryStep(stepIndex);
 });
+
+
+
+
 
 
 // =====================================
