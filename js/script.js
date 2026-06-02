@@ -2,6 +2,21 @@ console.log("JS 연결됨");
 
 
 
+// =====================================
+// 오버뷰 섹션 클릭 이벤트
+
+// 모든 키워드 요소를 가져옵니다.
+const keywords = document.querySelectorAll('.overview-keyword');
+
+keywords.forEach(keyword => {
+    keyword.addEventListener('click', function() {
+        // 클릭할 때마다 active 클래스를 넣었다가 뺐다가 합니다.
+        this.classList.toggle('active');
+    });
+});
+
+
+
 
 
 // =====================================

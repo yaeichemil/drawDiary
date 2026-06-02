@@ -7,6 +7,7 @@
 
 html {
     scroll-behavior: smooth;
+    /* overflow-x: hidden; */
 }
 
 /* 영상 */
@@ -27,6 +28,7 @@ html {
 body {
     background-color: #FCFAF6;
     font-family: 'Pretendard Variable', sans-serif;
+    /* overflow-x: hidden; */
 }
 
 /* ===================================== */
@@ -130,7 +132,7 @@ header {
 }
 
 .main-image img {
-    width: 900px;
+    width: 980px;
     display: block;
 
     opacity: 0;
@@ -298,7 +300,7 @@ header {
 
 
 .experience-section {
-    margin-bottom: 400px;
+    margin-bottom: 130px;
     padding: 140px 120px 180px;
 }
 
@@ -823,14 +825,14 @@ header {
         transform 0.45s ease;
 }
 
-/* hover 시 설명 박스 등장 */
-.overview-keyword:hover .keyword-desc {
+/* active 클래스가 붙었을 때 설명 박스 등장 */
+.overview-keyword.active .keyword-desc {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* hover 시 선 등장 */
-.overview-keyword:hover .keyword-line {
+/* active 클래스가 붙었을 때 선 등장 */
+.overview-keyword.active .keyword-line {
     opacity: 1;
 }
 
