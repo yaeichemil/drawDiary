@@ -14,10 +14,10 @@
     <!-- 헤더 -->
     <header>
 
-        <div class="header-logo">
+        <a href="./index.html" class="header-logo">
             <img class="logo-icon" src="./img/header/로고.png" alt="Draw Diary 로고">
             <img class="logo-text" src="./img/header/로고_문자.png" alt="Draw Diary 텍스트">
-        </div>
+        </a>
 
         <nav class="header-nav">
             <a href="#preview">PREVIEW</a>
@@ -61,7 +61,17 @@
 
 
             <div class="main-image">
-                <img src="./img/main/메인.svg" alt="키 비주얼">
+                <img 
+                    class="main-back"
+                    src="./img/main/main_back.svg" 
+                    alt="키 비주얼-배경"
+                >
+
+                <img 
+                    class="main-character"
+                    src="./img/main/main_character.svg" 
+                    alt="키 비주얼-캐릭터"
+                >
             </div>
 
         </section>
@@ -74,7 +84,9 @@
         <section class="story-section">
 
             <!-- 라인 드로잉 -->
-            <img class="story-line" src="./img/story/스토리_선.svg" alt="스토리 연결선">
+            <svg class="story-line" width="1444" height="2421" viewBox="0 0 1444 2421" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="story-line-path" d="M1339.73 0.737549C1479.44 248.159 1172.39 261.572 983.432 247.079C925.841 242.55 870.967 232.203 813.069 230.74C751.69 229.137 686.025 235.826 627.63 249.971C455.508 291.01 488.723 469.417 535.714 587.275C552.016 634.341 578.037 697.329 517.882 721.611C422.828 764.114 183.319 751.468 75.5605 857.655C36.1843 894.095 19.8446 941.65 25.3932 992.2C33.1996 1094.1 121.442 1166.25 227.823 1193.43C284.954 1208.93 343.77 1213.14 402.547 1216.8C502.155 1223.11 613.587 1225.79 716.562 1224.19C807.712 1223.46 897.791 1217.74 987.335 1219.69C1081.89 1221.58 1172.28 1242.48 1253.94 1288.05C1305.41 1316.54 1359.17 1355.21 1394.8 1400.37C1464.48 1485.02 1458.09 1610.06 1373.86 1684.12C1297.56 1753.87 1218.27 1766.86 1114.34 1774.91C1062.76 1779.58 1003.48 1782.4 954.426 1782.12C872.689 1782.12 799.944 1774.88 717.097 1764.91C515.242 1745.33 323.718 1698.62 169.428 1757.11C115.779 1777.59 63.6214 1812.75 34.6154 1861.35C-13.4472 1933.36 -7.93685 2029.09 42.9958 2098.45C86.2368 2156.84 165.142 2190.64 237.504 2217.85C357.01 2260.63 492.5 2259.24 616.839 2250.98C728.251 2237.8 815.116 2379.61 780.5 2419.74" stroke="#9BC192" stroke-width="3" stroke-miterlimit="10"/>
+            </svg>
 
 
             <!-- 1번째 이야기 -->
@@ -129,12 +141,21 @@
         <!-- 영상 -->
         <section class="video-section" id="preview">
 
-            <!-- <img src="./img/video/영상.png" alt="서비스 소개 영상"> -->
-
-                <video autoplay muted loop playsinline controls>
+            <div class="video-box">
+                <video class="preview-video" autoplay muted controls playsinline>
                     <source src="./img/video/motion_video.mp4" type="video/mp4">
                 </video>
-            
+
+                <button class="video-go-btn" type="button">
+                    <img src="./img/video/영상버튼.png" alt="일기 쓰러가기">
+                </button>
+
+                <img 
+                    class="video-arrow"
+                    src="./img/video/영상버튼 삼각형.png"
+                    alt=""
+                >
+            </div>
 
         </section>
 
@@ -143,9 +164,8 @@
 
 
         <!-- 사용 체험 -->
-        <!-- <section class="experience-section">
+        <section class="experience-section">
 
-            
             <div class="experience-intro">
                 <p class="section-label">Experience</p>
 
@@ -155,11 +175,8 @@
                 </h2>
             </div>
 
-
-            
             <div class="experience-demo">
 
-                
                 <div class="experience-steps">
 
                     <div class="experience-step" data-step="1">
@@ -194,39 +211,29 @@
                         </p>
                     </div>
 
-                </div> -->
+                </div>
 
+                <div class="phone-mockup experience-phone">
 
-            <!-- 임시 -->
-               <!-- 폰 목업 / 체험 프로토타입 영상 -->
-                <!-- <div class="phone-mockup experience-phone">
-                    <video class="experience-prototype-video" autoplay muted loop playsinline controls>
-                        <source src="./img/experience/prototype.mp4" type="video/mp4">
+                    <img 
+                        class="experience-screen"
+                        src="./img/experience/1/01.png"
+                        alt="Draw Diary 체험 화면"
+                    >
+
+                    <div class="experience-layer-box"></div>
+
+                    <video class="experience-video" muted playsinline preload="auto">
+                        <source src="./img/experience/10/로딩창.mp4" type="video/mp4">
                     </video>
-                </div> -->
 
-                <!-- 발표용 임시 프로토타입 영상 -->
-                <!-- <div class="experience-temp-video-box">
-                    <video class="experience-temp-video" autoplay muted loop playsinline controls>
-                        <source src="./img/experience/prototype.mp4" type="video/mp4">
-                    </video>
+                    <button class="experience-click-area" type="button" aria-label="체험 화면 진행"></button>
+
                 </div>
 
             </div>
 
-        </section> -->
-
-
-        <section class="experience-section">
-
-            <div class="experience-temp-video-box">
-                <video class="experience-temp-video" autoplay muted loop playsinline controls>
-                    <source src="./img/experience/prototype.mp4" type="video/mp4">
-                </video>
-            </div>
-
         </section>
-
 
 
 
@@ -363,8 +370,8 @@
             </div>
 
             <div class="insight-chart-box">
-                <img class="insight-chart-left" src="./img/insight/인사이트_L.png" alt="일기를 작성하지 않는 이유 그래프">
-                <img class="insight-chart-right" src="./img/insight/인사이트_R.png" alt="그림일기 앱 선호 기능 그래프">
+                <img class="insight-chart-left" src="./img/insight/인사이트.png" alt="인사이트 그래프">
+                <!-- <img class="insight-chart-right" src="./img/insight/인사이트_R.png" alt="그림일기 앱 선호 기능 그래프"> -->
             </div>
 
         </section>
@@ -468,8 +475,8 @@
                 <p class="section-label">Scenario</p>
 
                 <h2>
-                    30초, 5단계로 하루를 기록해요.<br>
-                    장소, 활동, 감정 딱 세 가지만 있다면 충분해요.
+                    일기작성 후<br>
+                    캘린더, 일기 분석, 나의 프로필 등을 확인할 수 있어요.
                 </h2>
             </div>
 
@@ -507,11 +514,11 @@
             </div>
 
             <div class="screenflow-label-list">
-                <p>장소 선택</p>
-                <p>활동 선택</p>
-                <p>감정 선택</p>
-                <p>하루 작성</p>
-                <p>완성 확인</p>
+                <p>일기완성</p>
+                <p>홈</p>
+                <p>캘린더</p>
+                <p>분석</p>
+                <p>프로필</p>
             </div>
 
         </section>
@@ -623,45 +630,71 @@
 
                 <img class="benefit-line" src="./img/benefit/베네핏 선.png" alt="베네핏 연결선">
 
-                <div class="benefit-card benefit-card-1">
+                <button class="benefit-card benefit-card-1" type="button">
                     <span class="benefit-number">1</span>
-                    <img src="./img/benefit/베네핏1.png" alt="나만의 기록">
-                    <h3>나만의 기록</h3>
-                    <p>
-                        그림으로 담는<br>
-                        나만의 이야기
-                    </p>
-                </div>
 
-                <div class="benefit-card benefit-card-2">
+                    <img 
+                        class="benefit-img benefit-diary-img active"
+                        src="./img/benefit/베네핏일기1.png"
+                        alt="베네핏 일기 1"
+                    >
+
+                    <img 
+                        class="benefit-img benefit-result-img"
+                        src="./img/benefit/베네핏1.png"
+                        alt="나만의 기록"
+                    >
+
+                    <p class="benefit-guide-text">일기를 클릭해보세요!</p>
+                </button>
+
+                <button class="benefit-card benefit-card-2" type="button">
                     <span class="benefit-number">2</span>
-                    <img src="./img/benefit/베네핏2.png" alt="습관의 형성">
-                    <h3>습관의 형성</h3>
-                    <p>
-                        짧지만 꾸준한<br>
-                        30초 기록
-                    </p>
-                </div>
 
-                <div class="benefit-card benefit-card-3">
+                    <img 
+                        class="benefit-img benefit-diary-img active"
+                        src="./img/benefit/베네핏일기2.png"
+                        alt="베네핏 일기 2"
+                    >
+
+                    <img 
+                        class="benefit-img benefit-result-img"
+                        src="./img/benefit/베네핏2.png"
+                        alt="습관의 형성"
+                    >
+                </button>
+
+                <button class="benefit-card benefit-card-3" type="button">
                     <span class="benefit-number">3</span>
-                    <img src="./img/benefit/베네핏3.png" alt="추억의 보관">
-                    <h3>추억의 보관</h3>
-                    <p>
-                        시간이 지나도<br>
-                        남는 순간들
-                    </p>
-                </div>
 
-                <div class="benefit-card benefit-card-4">
+                    <img 
+                        class="benefit-img benefit-diary-img active"
+                        src="./img/benefit/베네핏일기3.png"
+                        alt="베네핏 일기 3"
+                    >
+
+                    <img 
+                        class="benefit-img benefit-result-img"
+                        src="./img/benefit/베네핏3.png"
+                        alt="마음의 변화"
+                    >
+                </button>
+
+                <button class="benefit-card benefit-card-4" type="button">
                     <span class="benefit-number">4</span>
-                    <img src="./img/benefit/베네핏4.png" alt="마음의 변화">
-                    <h3>마음의 변화</h3>
-                    <p>
-                        나를 돌아보고<br>
-                        성장하는 시간
-                    </p>
-                </div>
+
+                    <img 
+                        class="benefit-img benefit-diary-img active"
+                        src="./img/benefit/베네핏일기4.png"
+                        alt="베네핏 일기 4"
+                    >
+
+                    <img 
+                        class="benefit-img benefit-result-img"
+                        src="./img/benefit/베네핏4.png"
+                        alt="추억의 보관"
+                    >
+                </button>
 
             </div>
 

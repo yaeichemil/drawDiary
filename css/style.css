@@ -1,3 +1,24 @@
+/* @font-face {
+    font-family: 'GangwonEduAll';
+    src: url('../font/GangwonEduAll.ttf') format('truetype');
+    font-weight: 400 800;
+    font-style: normal;
+} */
+
+@font-face {
+    font-family: 'GangwonEduAll';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFLightA.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GangwonEduAll';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,34 +28,42 @@
 
 html {
     scroll-behavior: smooth;
-    /* overflow-x: hidden; */
 }
 
 /* 영상 */
 #preview {
-    scroll-margin-top: -60px;
+    scroll-margin-top: 10px;
 }
 
 /* 오버뷰 */
 #process {
-    scroll-margin-top: -43px;
+    scroll-margin-top: 35px;
 }
 
 /* 스크린플로우 */
 #service {
-    scroll-margin-top: -85px;
+    scroll-margin-top: -98px;
 }
 
 body {
     background-color: #FCFAF6;
     font-family: 'Pretendard Variable', sans-serif;
-    /* overflow-x: hidden; */
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+main {
+    overflow-x: visible;
 }
 
 /* ===================================== */
 
 header {
-    padding: 18px 100px;
+    padding: 18px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,14 +73,16 @@ header {
     display: flex;
     gap: 12px;
     align-items: center;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .logo-icon {
-    height: 99px;
+    height: 90px;
 }
 
 .logo-text {
-    height: 40px;
+    height: 35px;
 }
 
 .header-nav {
@@ -62,7 +93,7 @@ header {
 .header-nav a {
     text-decoration: none;
     color: #1b1b1b;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
 }
 
@@ -71,7 +102,7 @@ header {
 /* 메인 화면 (텍스트 / 그림) */
 .main-section {
     min-height: 680px;
-    padding: 40px 120px;
+    padding: 40px 70px;
     display: flex;
     gap: 90px;
     align-items: flex-start;
@@ -88,7 +119,7 @@ header {
 
 .main-subtitle {
     font-family: 'GangwonEduAll', sans-serif;
-    font-size: 38px;
+    font-size: 30px;
     font-weight: 500;
     color: #1b1b1b;
     margin-top: 50px;
@@ -97,7 +128,7 @@ header {
 
 .main-title {
     font-family: 'GangwonEduAll', sans-serif;
-    font-size: 106px;
+    font-size: 93px;
     font-weight: 700;
     color: #1b1b1b;
     margin-bottom: 35px;
@@ -106,11 +137,11 @@ header {
 
 .main-desc {
     font-family: 'GangwonEduAll', sans-serif;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 400;
     line-height: 1.45;
-    color: #4a4a4a;
-    margin-bottom: 80px;
+    color: #7b7b7b;
+    margin-bottom: 40px;
 }
 
 .download-btn {
@@ -121,26 +152,67 @@ header {
 }
 
 .download-btn img {
-    width: 230px;
+    width: 200px;
 }
 
-/* 그림 섹션 */
+/* 키 비주얼 (배경 + 캐릭터) */
 .main-image {
     margin-top: -60px;
     margin-left: 180px;
     flex-shrink: 0;
+
+    position: relative;
+    width: 770px;
+    height: 560px;
+
+    z-index: 2;
 }
 
-.main-image img {
-    width: 980px;
-    display: block;
+/* 배경 */
+.main-back {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
 
     opacity: 0;
-    transform: translateY(20px);
-    animation: mainVisualIn 1s ease forwards;
+    transform: scale(0.96) translateY(18px);
+
+    animation: mainBackIn 1.5s ease forwards;
 }
 
-@keyframes mainVisualIn {
+/* 인물 */
+.main-character {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    opacity: 0;
+    transform: translateY(18px);
+
+    animation: mainCharacterIn 1.2s ease forwards;
+    animation-delay: 0.45s;
+}
+
+@keyframes mainBackIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.94) translateY(22px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.015) translateY(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes mainCharacterIn {
     to {
         opacity: 1;
         transform: translateY(0);
@@ -152,18 +224,23 @@ header {
 /* 스토리텔링 화면 */
 .story-section {
     position: relative;
-    padding: 80px 120px 120px;
+    padding: 80px 120px 320px;
+    z-index: 0;
 }
 
 .story-line {
-    display: none;
+    display: block;
     width: 1200px;
-    position: absolute;
+    height: auto;
 
-    top: 0;
+    position: absolute;
+    top: -6.3%;
     left: 50%;
+
     transform: translateX(-50%);
     z-index: 0;
+
+    overflow: visible;
 }
 
 /* 라인 제외한 나머지 (부모) */
@@ -175,7 +252,7 @@ header {
 
 .story-item p {
     font-family: 'GangwonEduAll', sans-serif;
-    font-size: 27px;
+    font-size: 24px;
     font-weight: 600;
     line-height: 1.6;
     color: #1b1b1b;
@@ -190,11 +267,15 @@ header {
 }
 
 .story-item-1 img {
-    width: 350px;
+    width: 280px;
 }
 
+/* transform -> top/left */
 .story-item-1 p {
-    transform: translate(-50%, -50%);
+    position: relative;
+    left: -100px;
+    top: 30px;
+    transform: none;
 }
 
 .story-item-2 {
@@ -212,8 +293,12 @@ header {
 }
 
 .story-bubble {
-    width: 100%;
-    top: -10px;
+    width: 130%;
+    
+    /* position -> top, left 순서대로 */
+    position: relative;
+    top: 70px;
+    left: -70px;
 }
 
 /* .story-bubble img {
@@ -223,18 +308,19 @@ header {
 
 .story-bubble-box p {
     position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+    top: 160px;
+    left: -55px;
     width: 430px;
     text-align: center;
 }
 
 /* 2번째 그림 */
 .story-photo {
-    width: 400px;
-    transform: translate(-80px, -60px);
+    width: 320px;
+
+    position: relative;
+    left: -80px;
+    top: 40px;
 }
 
 .story-item-3 {
@@ -246,14 +332,27 @@ header {
 }
 
 .story-item-3 img {
-    width: 400px;
-    transform: translate(-80px, 60px);
+    width: 320px;
+    position: relative;
+    left: -120px;
+    top: 140px;
 }
 
-.story-item-3 p {
+.story-section .story-item-3 p {
     width: 620px;
-    transform: translate(80px, 60px);
+
+    position: relative;
+    left: -80px;
+    top: 150px;
 }
+
+/* .story-section p {
+    outline: 3px solid red;
+} */
+
+/* .story-item-3 p {
+    outline: 3px solid red;
+} */
 
 .story-item-4 {
     display: flex;
@@ -262,63 +361,160 @@ header {
 
     margin-top: 130px;
     margin-left: 300px;
+    /* outline: 3px solid red; */
 }
 
 .story-item-4 p {
     width: 420px;
-    transform: translate(-70px, 10px);
+
+    position: relative;
+    left: -30px;
+    top: 130px;
 }
 
 .story-item-4 img {
-    width: 430px;
-    transform: translate(140px, 80px);
+    width: 400px;
+
+    position: relative;
+    left: -10px;
+    top: 200px;
+}
+
+/* 라인 드로잉 */
+.story-line-path {
+    transition: stroke-dashoffset 0.08s linear;
 }
 
 /* ===================================== */
 
+/* 비디오 섹션 */
 
-/* 영상 섹션 */
 .video-section {
-    margin: 200px 0;
-    padding: 80px 100px 0;
+    padding-bottom: 150px;
     display: flex;
     justify-content: center;
 }
 
-.video-section video {
-    border-radius: 20px;
-    width: 100%;
-    max-width: 1550px;
+.video-box {
+    position: relative;
+    width: 1300px;
 }
+
+.preview-video {
+    width: 100%;
+    display: block;
+
+    border: 1.5px solid #1b1b1b;
+    border-radius: 36px;
+    overflow: hidden;
+}
+
+.video-go-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+
+    transform: translateX(-50%) translateY(24px);
+
+    border: none;
+    background: none;
+    padding: 0;
+
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+
+    z-index: 5;
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.video-go-btn img {
+    width: 220px;
+    display: block;
+}
+
+.video-arrow {
+    position: absolute;
+    left: 50%;
+    bottom: 55px;
+
+    width: 80px;
+    transform: translateX(-50%) translateY(24px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    z-index: 5;
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.video-go-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.video-arrow.show {
+    opacity: 1;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(0);
+
+    animation: videoArrowFloat 1.2s ease-in-out infinite;
+}
+
+@keyframes videoArrowFloat {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(8px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+/* .video-go-btn {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 10;
+}
+
+.video-arrow {
+    opacity: 1 !important;
+    z-index: 10;
+} */
 
 /* ===================================== */
 
-/* 사용 체험 섹션 */
-/* .experience-section {
-    padding: 140px 120px 180px;
-} */
-
-
+/* 체험 섹션 */
 .experience-section {
-    margin-bottom: 130px;
-    padding: 140px 120px 180px;
+    margin-bottom: 50px;
+    padding: 100px 100px 150px;
 }
 
 .experience-intro {
-    width: 420px;
+    width: 500px;
     margin-left: 0;
-    margin-bottom: 70px;
+    margin-bottom: 45px;
 }
 
 .section-label {
-    font-size: 24px;
+    font-size: 21px;
     font-weight: 700;
     color: #78BB93;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .experience-intro h2 {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.45;
     color: #1b1b1b;
@@ -329,9 +525,11 @@ header {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    gap: 170px;
+    gap: 100px;
 
-    margin-top: -20px;
+    max-width: 1180px;
+    margin: -10px auto 0;
+    transform: translateX(-70px);
 }
 
 /* 진행 단계 */
@@ -341,24 +539,23 @@ header {
 
     width: 420px;
     margin-top: 30px;
+    margin-left: 0;
+
+    transform: translateX(115px);
 
     display: flex;
     flex-direction: column;
     gap: 72px;
 
     opacity: 0;
-    transform: translateY(25px);
     pointer-events: none;
 
-    transition:
-        opacity 0.55s ease,
-        transform 0.55s ease;
+    transition: opacity 0.9s ease;
 }
 
 /* 진행 단계 등장 상태 */
 .experience-steps.show {
     opacity: 1;
-    transform: translateY(0);
     pointer-events: auto;
 }
 
@@ -366,8 +563,8 @@ header {
 .experience-steps::before {
     content: "";
     position: absolute;
-    left: 17px;
-    top: 34px;
+    left: 15px;
+    top: 28px;
     bottom: 34px;
 
     border-left: 2px dashed #CFC7B8;
@@ -384,8 +581,8 @@ header {
 }
 
 .experience-step span {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
 
     border: 2px solid #D8C89A;
     background-color: #FFF8E9;
@@ -396,6 +593,11 @@ header {
     align-items: center;
 
     font-size: 17px;
+    font-weight: 700;
+    line-height: 1;
+
+    padding-top: 6px;
+
     color: #B7A46C;
     flex-shrink: 0;
 }
@@ -407,21 +609,127 @@ header {
 }
 
 .experience-step p {
-    font-size: 22px;
-    line-height: 1.7;
+    font-size: 18px;
+    line-height: 1.6;
     color: #1b1b1b;
 }
 
 .experience-step strong {
-    font-size: 24px;
+    font-size: 21px;
     font-weight: 700;
 }
+
+
+/* ===================================== */
+/* Experience 왼쪽 진행 단계 상태 */
+
+/* 기본: 모든 단계 숨김 */
+.experience-steps .experience-step {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 1단계만 표시 */
+.experience-steps.step-1 .experience-step:nth-child(1) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 1~2단계 표시 */
+.experience-steps.step-2 .experience-step:nth-child(-n+2) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 1~3단계 표시 */
+.experience-steps.step-3 .experience-step:nth-child(-n+3) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 1~4단계 표시 */
+.experience-steps.step-4 .experience-step:nth-child(-n+4) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 선 기본 */
+.experience-steps::before {
+    opacity: 0;
+    transition: opacity 0.9s ease;
+}
+
+/* 1단계는 선 없음 */
+.experience-steps.step-1::before {
+    display: none;
+}
+
+/* 2단계 선 */
+.experience-steps.step-2::before {
+    display: block;
+    top: 34px;
+    bottom: auto;
+    height: 102px;
+
+    opacity: 0;
+    animation: experienceStepFadeIn 0.9s ease forwards;
+}
+
+/* 2단계로 넘어갈 때 2번 항목만 페이드인 */
+.experience-steps.step-2 .experience-step:nth-child(2) {
+    opacity: 0;
+    animation: experienceStepFadeIn 0.9s ease forwards;
+}
+
+/* 진행 단계 페이드인 */
+@keyframes experienceStepFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* 3단계 선 */
+.experience-steps.step-3::before {
+    display: block;
+    top: 34px;
+    bottom: auto;
+    height: 245px;
+
+    opacity: 0;
+    animation: experienceStepFadeIn 0.9s ease forwards;
+}
+
+/* 3단계로 넘어갈 때 3번 항목만 페이드인 */
+.experience-steps.step-3 .experience-step:nth-child(3) {
+    opacity: 0;
+    animation: experienceStepFadeIn 0.9s ease forwards;
+}
+
+
+/* 4단계 선 */
+.experience-steps.step-4::before {
+    display: block;
+    top: 34px;
+    bottom: auto;
+    height: 390px;
+
+    opacity: 0;
+    animation: experienceStepFadeIn 0.9s ease forwards;
+}
+
+/* 4단계로 넘어갈 때 4번 항목만 페이드인 */
+.experience-steps.step-4 .experience-step:nth-child(4) {
+    opacity: 0;
+    animation: experienceStepFadeIn 0.9s ease forwards;
+}
+
+/* ===================================== */
 
 /* 체험 폰 목업 */
 .experience-phone {
     position: relative;
-    width: 400px;
-    margin-top: -150px;
+    width: 330px;
+    margin-top: -115px;
 }
 
 .experience-screen {
@@ -431,6 +739,14 @@ header {
 
 /* 레이어 박스 */
 .experience-layer-box {
+    /* position: absolute;
+    inset: 4% 4% 2.5% 5.5%;
+
+    overflow: hidden;
+    border-radius: 34px;
+
+    pointer-events: none; */
+
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -442,53 +758,66 @@ header {
     position: absolute;
 
     opacity: 0;
-    transform: translateY(18px);
 
-    transition:
-        opacity 0.45s ease,
-        transform 0.45s ease;
+    transition: opacity 0.45s ease;
 }
 
 .experience-layer.show,
 .experience-start-layer.show {
     opacity: 1;
-    transform: translateY(0);
 }
 
+/* ===================================== */
 /* 1번 시작 화면 레이어 */
+
+/* 로고 */
 .experience-start-logo {
-    width: 170px;
+    width: 42%;
     left: 50%;
-    top: 245px;
-    transform: translateX(-50%) translateY(16px);
+    top: 36%;
+
+    transform: translateX(-50%);
 }
 
+/* 말풍선 */
+.experience-start-bubble {
+    width: 78%;
+    left: 105%;
+    top: 80%;
+}
+
+/* 시작 버튼 */
 .experience-start-button {
-    width: 280px;
+    width: 70%;
     left: 50%;
-    bottom: 90px;
-    transform: translateX(-50%) translateY(16px);
+    bottom: 13%;
+
+    transform: translateX(-50%);
 
     pointer-events: auto;
     cursor: pointer;
 }
 
-/* translateX 유지용 */
-.experience-start-logo.show,
-.experience-start-button.show {
+
+/* .experience-start-bubble.show {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
+    transform: translateY(0);
+} */
 
 /* 로딩 영상 */
 .experience-video {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    width: 101.4%;
+    height: 101.4%;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     display: none;
-    object-fit: contain;
+    object-fit: cover;
+    opacity: 1;
 }
 
 .experience-video.active {
@@ -497,64 +826,451 @@ header {
 
 /* 클릭 영역 */
 .experience-click-area {
+    display: none;
     position: absolute;
     inset: 0;
 
     border: none;
     background: transparent;
+    cursor: default;
+}
+
+/* ===================================== */
+/* 2번 홈 화면 레이어 */
+
+/* 그림일기 만들기 버튼 */
+.experience-home-button {
+    width: 70%;
+    left: 50%;
+    top: 49%;
+
+    transform: translateX(-50%);
+
+    pointer-events: auto;
     cursor: pointer;
 }
 
-/* 발표용 임시 프로토타입 영상 */
-.experience-steps,
-.experience-phone {
-    display: none;
+/* 홈 화면 말풍선 */
+.experience-home-bubble {
+    width: 80%;
+    left: 105%;
+    top: 46%;
 }
-
-.experience-demo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.experience-temp-video {
-    width: 520px;
-    display: block;
-}
-
-/* ===================================== */
-
-/* 발표용 임시 Experience 영상 */
-.experience-section {
-    padding: 120px 120px 200px;
-}
-
-/* 기존 텍스트/체험 UI 임시 숨김 */
-.experience-intro,
-.experience-demo {
-    display: none;
-}
-
-.experience-temp-video-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.experience-temp-video {
-    width: 100%;
-    max-width: 1550px;
-    display: block;
-}
-
-
 
 
 /* ===================================== */
+/* 3번 장소 질문 화면 레이어 */
 
+/* 마키가 보이는 영역: 폰 안쪽에서만 잘라내기 */
+.experience-marquee-window {
+    position: absolute;
+    left: 6%;
+    top: 55%;
+    width: 88%;
+    height: 12%;
+
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.85s ease;
+}
+
+.experience-marquee-window.show {
+    opacity: 1;
+}
+
+/* 마키 내부 트랙 */
+.experience-marquee-track {
+    display: flex;
+    width: max-content;
+}
+
+/* 마키 이미지 공통 */
+.experience-marquee-track img {
+    display: block;
+    width: 38%;
+    flex-shrink: 0;
+}
+
+/* 1번째 줄 */
+.experience-place-marquee-1 {
+    top: 63%;
+}
+
+.experience-place-marquee-1 .experience-marquee-track {
+    animation: experienceMarqueeLeft 32s linear infinite;
+}
+
+/* 2번째 줄 */
+.experience-place-marquee-2 {
+    top: 69%;
+}
+
+.experience-place-marquee-2 .experience-marquee-track {
+    animation: experienceMarqueeRight 32s linear infinite;
+}
+
+.experience-place-bubble-1 {
+    width: 63%;
+    left: 108%;
+    top: 64%;
+}
+
+.experience-place-bubble-2 {
+    width: 89%;
+    left: 108%;
+    top: 79%;
+}
+
+/* 작성바 */
+.experience-place-input {
+    width: 78%;
+    left: 50%;
+    bottom: 15%;
+
+    transform: translateX(-50%);
+
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* 마키 애니메이션 */
+@keyframes experienceMarqueeLeft {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes experienceMarqueeRight {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+/* ===================================== */
+/* 4번 키보드 화면 레이어 */
+
+/* 작성바 */
+.experience-keyboard-input {
+    width: 79%;
+    left: 50%;
+    top: 55%;
+
+    transform: translateX(-50%);
+}
+
+/* 키보드 */
+.experience-keyboard-img {
+    width: 89.5%;
+    left: 5.2%;
+    bottom: 2.5%;
+
+    border-radius: 0 0 35px 35px;
+
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+
+/* 4번 홈 인디케이터 */
+.experience-keyboard-home-indicator {
+    width: 91%;
+    left: 50%;
+    bottom: 2.5%;
+
+    transform: translateX(-50%);
+}
+
+/* 4번 말풍선 */
+.experience-keyboard-bubble {
+    width: 90%;
+    left: 108%;
+    top: 70%;
+}
+
+
+/* ===================================== */
+/* 5번 공원 입력 완료 화면 레이어 */
+
+/* 공원 입력된 작성바 */
+.experience-typed-input {
+    width: 79%;
+    left: 50%;
+    top: 55%;
+
+    transform: translateX(-50%);
+}
+
+/* 5번 키보드 */
+/* .experience-typed-keyboard {
+    width: 89%;
+    left: 5.5%;
+    bottom: 2%;
+
+    border-radius: 0 0 35px 35px;
+} */
+
+/* 5번 홈 인디케이터 */
+/* .experience-typed-home-indicator {
+    width: 90%;
+    left: 50%;
+    bottom: 2%;
+
+    transform: translateX(-50%);
+} */
+
+/* 엔터 버튼 */
+.experience-typed-enter-button {
+    width: 21.5%;
+    right: 6.65%;
+    bottom: 11.5%;
+
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* 5번 말풍선 */
+.experience-typed-bubble {
+    width: 90%;
+    left: 108%;
+    top: 82%;
+}
+
+
+/* ===================================== */
+/* 6번 활동 선택 화면 레이어 */
+
+/* 6번에서는 1~2번 진행 단계만 보이게 */
+/* .experience-steps.activity-only .experience-step:nth-child(n+3) {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 1번과 2번 사이 연결선만 표시 */
+/* .experience-steps.activity-only::before {
+    display: block;
+    top: 34px;
+    bottom: auto;
+    height: 102px;
+} */
+
+/* 활동 선택지 마키 */
+.experience-activity-marquee-1 {
+    top: 62%;
+}
+
+.experience-activity-marquee-1 .experience-marquee-track {
+    animation: experienceMarqueeLeft 32s linear infinite;
+}
+
+.experience-activity-marquee-2 {
+    top: 68%;
+}
+
+.experience-activity-marquee-2 .experience-marquee-track {
+    animation: experienceMarqueeRight 32s linear infinite;
+}
+
+/* 6번 마키는 클릭 가능 */
+.experience-choice-marquee {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* 6번 말풍선 */
+.experience-activity-bubble {
+    width: 83%;
+    left: 108%;
+    top: 64%;
+}
+
+
+/* ===================================== */
+/* 7번 감정 선택 화면 레이어 */
+
+/* 감정 선택지 마키 */
+.experience-emotion-marquee-1 {
+    top: 62%;
+}
+
+.experience-emotion-marquee-1 .experience-marquee-track {
+    animation: experienceMarqueeLeft 32s linear infinite;
+}
+
+.experience-emotion-marquee-2 {
+    top: 68%;
+}
+
+.experience-emotion-marquee-2 .experience-marquee-track {
+    animation: experienceMarqueeRight 32s linear infinite;
+}
+
+/* 7번 말풍선 */
+.experience-emotion-bubble {
+    width: 83%;
+    left: 108%;
+    top: 64%;
+}
+
+
+/* ===================================== */
+/* 8번 한 줄 기록 화면 레이어 */
+
+/* 8번 말풍선 1 */
+.experience-record-bubble-1 {
+    width: 90%;
+    left: 108%;
+    top: 17%;
+}
+
+/* 8번 말풍선 2 */
+.experience-record-bubble-2 {
+    width: 82%;
+    left: 108%;
+    top: 49%;
+}
+
+/* 8번 말풍선 3 */
+.experience-record-bubble-3 {
+    width: 92%;
+    left: 113%;
+    top: 64%;
+}
+
+/* 8번 작성란 */
+.experience-record-input {
+    width: 81.8%;
+    left: 50%;
+    top: 48.3%;
+
+    transform: translateX(-50%);
+
+    pointer-events: auto;
+    /* cursor: pointer; */
+}
+
+/* 8번 실제 입력 textarea */
+.experience-real-textarea {
+    position: absolute;
+
+    width: 70%;
+    height: 15%;
+    left: 50%;
+    top: 52%;
+
+    transform: translateX(-50%);
+
+    border: none;
+    outline: none;
+    resize: none;
+    background: transparent;
+
+    font-family: 'GangwonEduAll', sans-serif;
+    font-size: 15.5px;
+    font-weight: 800;
+    line-height: 1.6;
+    color: #1b1b1b;
+
+    z-index: 5;
+    pointer-events: auto;
+}
+
+.experience-real-textarea::placeholder {
+    color: #999999;
+    opacity: 0.7;
+}
+
+/* 8번 그림일기 만들기 버튼 */
+.experience-record-button {
+    width: 82%;
+    left: 50%;
+    top: 77%;
+
+    transform: translateX(-50%);
+
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 6;
+}
+
+
+/* ===================================== */
+/* 9번 한 줄 입력 완료 화면 레이어 */
+
+/* 9번 말풍선 1 */
+.experience-written-bubble-1 {
+    width: 82%;
+    left: 111%;
+    top: 60%;
+}
+
+/* 9번 말풍선 2 */
+.experience-written-bubble-2 {
+    width: 92%;
+    left: 108%;
+    top: 75%;
+}
+
+/* 9번 그림일기 만들기 버튼 */
+.experience-written-button {
+    width: 82%;
+    left: 50%;
+    top: 77%;
+
+    transform: translateX(-50%);
+
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+
+/* ===================================== */
+/* 10번 로딩 영상 화면 */
+
+/* 로딩 영상 페이드아웃용 */
+.experience-video.fade-out {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+
+/* ===================================== */
+/* 11번 완성 화면 레이어 */
+
+.experience-complete-bubble {
+    width: 83%;
+    left: 112%;
+    top: 70%;
+}
+
+.experience-screen.fade-in {
+    animation: experienceScreenFadeIn 0.8s ease forwards;
+}
+
+@keyframes experienceScreenFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* ===================================== */
 /* 서비스 배경 섹션 */
+
 .overview-section {
-    padding: 40px 120px 160px;
+    padding: 0 120px 160px;
 }
 
 .overview-intro {
@@ -562,27 +1278,26 @@ header {
 }
 
 .overview-intro h2 {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 1.7;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.45;
     color: #1b1b1b;
 }
 
 /* 오버뷰 전체 그림 */
 .overview-map {
     position: relative;
-    width: 1200px;
-    height: 760px;
+    width: 1180px;
+    height: 650px;
     margin: 0 auto;
-    /* transform: translateY(40px); */
 }
 
 /* 가운데 메인 이미지 */
 .overview-main-image {
     position: absolute;
-    width: 500px;
+    width: 330px;
     left: 50%;
-    top: 100px;
+    top: 120px;
     transform: translateX(-50%);
 }
 
@@ -591,209 +1306,245 @@ header {
     position: absolute;
 }
 
-.keyword-button {
-    width: 250px;
-    /* top: 80px; */
-}
-
+/* 선 공통 */
 .keyword-line {
     position: absolute;
     width: 80px;
 }
 
+/* 설명 박스 묶음 공통 */
 .keyword-desc {
     position: absolute;
 }
 
-/* 건강 지능 설명 박스 */
-.keyword-health .keyword-desc {
-    position: absolute;
-    left: -140px;
-    top: -25px;
-}
-
-/* 설명 박스 이미지
-.keyword-health .keyword-desc img {
-    width: 300px;
-}
-
-/* 설명 박스 텍스트 */
-/* .keyword-health .keyword-desc p {
-    position: absolute;
-    top: 58px;
-    left: 58px;
-
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.65;
-} */
-
+/* 설명 박스 이미지 공통 */
 .keyword-desc img {
-    width: 300px;
+    display: block;
+    width: 220px;
 }
 
+/* 설명 박스 텍스트 공통 */
 .keyword-desc p {
     position: absolute;
-    top: 58px;
-    left: 70px;
 
-    font-size: 22px;
-    font-weight: 600;
+    top: 42px;
+    left: 46px;
+    width: 140px;
+
+    font-size: 18px;
+    font-weight: 500;
     line-height: 1.65;
     color: #1b1b1b;
 }
-
-/* 건강 지능 위치 */
-.keyword-health {
-   position: absolute;
-   left: -70px;
-   top: 70px;
-}
-
-/* 건강 지능 버튼 */
-.keyword-health .keyword-button {
-    position: absolute;
-    left: 220px;
-    top: 0;
-    width: 240px;
-    z-index: 2;
-}
-
-/* 건강 지능 연결선 */
-.keyword-health .keyword-line {
-    position: absolute;
-    left: 155px;
-    top: 40px;
-    width: 70px;
-}
-
-/* ~~~~~~~~~~~!!!!!!!!!1~~~~~~~~~~~~~~~ */
-/* ~~~~~~~~~~~!!!!!!!!!1~~~~~~~~~~~~~~~ */
-/* ~~~~~~~~~~~!!!!!!!!!1~~~~~~~~~~~~~~~ */
 
 .keyword-desc span {
     color: #78BB93;
 }
 
-/* 1.5 가구 */
-.keyword-household {
+/* ===================================== */
+/* 건강 지능 */
+
+.keyword-health {
     position: absolute;
-    left: 650px;
-    top: 30px;
+    left: -70px;
+    top: 70px;
 }
 
+/* 건강 지능 버튼 */
+.keyword-health .keyword-button {
+    position: absolute;
+    left: 300px;
+    top: 0;
+    width: 190px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* 건강 지능 연결선 */
+.keyword-health .keyword-line {
+    position: absolute;
+    left: 237px;
+    top: 30px;
+    width: 65px;
+}
+
+/* 건강 지능 설명 박스 전체 위치 */
+.keyword-health .keyword-desc {
+    position: absolute;
+    left: 22px;
+    top: -25px;
+}
+
+/* 건강 지능 설명 박스 이미지 */
+.keyword-health .keyword-desc img {
+    width: 220px;
+}
+
+/* 건강 지능 설명 박스 텍스트 */
+.keyword-health .keyword-desc p {
+    top: 35px;
+    left: 50px;
+    width: 160px;
+}
+
+/* ===================================== */
+/* 1.5 가구 */
+
+.keyword-household {
+    position: absolute;
+    left: 670px;
+    top: 70px;
+}
+
+/* 1.5 가구 버튼 */
 .keyword-household .keyword-button {
     position: absolute;
     left: 40px;
     top: -40px;
-    width: 240px;
+    width: 190px;
     z-index: 2;
+    cursor: pointer;
 }
 
+/* 1.5 가구 연결선 */
 .keyword-household .keyword-line {
     position: absolute;
-    left: 275px;
-    top: 0;
-    width: 80px;
+    left: 228px;
+    top: -10px;
+    width: 65px;
 }
 
+/* 1.5 가구 설명 박스 전체 위치 */
 .keyword-household .keyword-desc {
     position: absolute;
-    left: 350px;
+    left: 287px;
     top: -100px;
 }
 
-.keyword-household .keyword-desc p {
-   transform: translate(-30px, -30px);
+/* 1.5 가구 설명 박스 이미지 */
+.keyword-household .keyword-desc img {
+    width: 270px;
 }
 
+/* 1.5 가구 설명 박스 텍스트 */
+.keyword-household .keyword-desc p {
+    top: 40px;
+    left: 40px;
+    width: 200px;
+}
+
+/* ===================================== */
 /* 레디코어 */
+
 .keyword-readycore {
     position: absolute;
-    left: 850px;
-    top: 270px;
+    left: 700px;
+    top: 220px;
 }
 
+/* 레디코어 버튼 */
 .keyword-readycore .keyword-button {
     position: absolute;
     left: 140px;
     top: 0;
-    width: 240px;
+    width: 190px;
     z-index: 2;
+    cursor: pointer;
 }
 
+/* 레디코어 연결선 */
 .keyword-readycore .keyword-line {
     position: absolute;
-    left: 250px;
-    top: 62px;
-    width: 12px;
+    left: 230px;
+    top: 60px;
+    width: 9px;
 }
 
+/* 레디코어 설명 박스 전체 위치 */
 .keyword-readycore .keyword-desc {
     position: absolute;
-    left: 70px;
-    top: 130px;
+    left: 160px;
+    top: 108px;
+    
+    z-index: -1;
 }
 
+/* 레디코어 설명 박스 이미지 */
 .keyword-readycore .keyword-desc img {
-    width: 380px;
+    width: 300px;
 }
 
+/* 레디코어 설명 박스 텍스트 */
 .keyword-readycore .keyword-desc p {
-   transform: translate(-17px, -12px);
+    top: 38px;
+    left: 40px;
+    width: 240px;
 }
 
+/* ===================================== */
 /* 필코노미 */
+
 .keyword-feelconomy {
     position: absolute;
-    left: 110px;
-    top: 360px;
+    left: 200px;
+    top: 290px;
 }
 
+/* 필코노미 버튼 */
 .keyword-feelconomy .keyword-button {
     position: absolute;
     left: -30px;
     top: 0;
-    width: 240px;
+    width: 190px;
     z-index: 2;
+    cursor: pointer;
 }
 
+/* 필코노미 연결선 */
 .keyword-feelconomy .keyword-line {
     position: absolute;
-    left: 85px;
-    top: 74px;
-    width: 10px;
+    left: 52px;
+    top: 60px;
+    width: 9px;
 }
 
+/* 필코노미 설명 박스 전체 위치 */
 .keyword-feelconomy .keyword-desc {
     position: absolute;
-    left: -240px;
-    top: 130px;
+    left: -190px;
+    top: 105px;
+
+    z-index: -1;
 }
 
+/* 필코노미 설명 박스 이미지 */
 .keyword-feelconomy .keyword-desc img {
-   width: 380px;
+    width: 300px;
 }
 
+/* 필코노미 설명 박스 텍스트 */
 .keyword-feelconomy .keyword-desc p {
-    transform: translate(12px, -8px);
+    top: 38px;
+    left: 60px;
+    width: 190px;
 }
 
+/* ===================================== */
 /* 오버뷰 본문 */
+
 .overview-bottom-text {
     position: absolute;
     left: 50%;
-    bottom: 80px;
+    bottom: 150px;
     transform: translateX(-50%);
     text-align: center;
 }
 
 .overview-bottom-text p {
     font-family: 'GangwonEduAll', sans-serif;
-    font-size: 34px;
+    font-size: 26px;
     font-weight: 800;
-    line-height: 1.38;
-    letter-spacing: 0.8;
+    line-height: 1.4;
     color: #1b1b1b;
 }
 
@@ -802,8 +1553,8 @@ header {
 }
 
 /* ===================================== */
-
 /* Overview hover 기본 상태 */
+
 .overview-keyword .keyword-line,
 .overview-keyword .keyword-desc {
     opacity: 0;
@@ -840,17 +1591,17 @@ header {
 
 /* 인사이트 섹션 */
 .insight-section {
-    padding: 80px 120px 180px;
+    padding: 0 120px 180px;
     text-align: center;
 }
 
 .insight-intro {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 .insight-intro h2 {
     font-family: 'GangwonEduAll', sans-serif;
-    font-size: 34px;
+    font-size: 26px;
     font-weight: 700;
     line-height: 1.65;
     color: #1b1b1b;
@@ -864,30 +1615,29 @@ header {
 }
 
 .insight-chart-left {
-    width: 760px;
+    width: 900px;
 }
 
-.insight-chart-right {
+/* .insight-chart-right {
     width: 360px;
-}
+} */
 
 /* ===================================== */
-
 /* 해결 방법 섹션 */
+
 .solution-section {
-    padding: 140px 100px 180px;
+    padding: 110px 100px 150px;
     text-align: center;
 }
 
 .solution-intro {
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 
 .solution-intro h2 {
-    font-family: 'GangwonEduAll', sans-serif;
-    font-size: 34px;
+    font-size: 18px;
     font-weight: 500;
-    line-height: 1.65;
+    line-height: 1.45;
     color: #1b1b1b;
 }
 
@@ -895,12 +1645,13 @@ header {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
-    max-width: 1600px;
+
+    max-width: 1180px;
     margin: 0 auto;
 }
 
 .solution-card {
-    padding: 0 55px;
+    padding: 0 38px;
     border-right: 1px solid #999;
 }
 
@@ -909,39 +1660,39 @@ header {
 }
 
 .solution-card h3 {
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 700;
-    margin-bottom: 42px;
+    margin-bottom: 32px;
 }
 
 .solution-card p {
     font-family: 'GangwonEduAll', sans-serif;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 1.65;
     color: #1b1b1b;
 }
 
 .solution-card img {
-    width: 280px;
-    margin: 50px 0 42px;
+    width: 220px;
+    margin: 40px 0 34px;
 }
 
 .solution-card strong {
     display: block;
-    font-family: 'GangwonEduAll', sans-serif;
-    font-size: 25px;
+    font-family: 'Pretendard Variable', sans-serif;
+    font-size: 18px;
     font-weight: 700;
     color: #78BB93;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 /* 보조선 */
 .solution-marker {
     width: 2px;
-    height: 44px;
+    height: 36px;
     background-color: #78BB93;
-    margin: 0 auto 28px;
+    margin: 0 auto 24px;
     position: relative;
 }
 
@@ -949,69 +1700,55 @@ header {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: -7px;
+    bottom: -6px;
     transform: translateX(-50%);
 
-    width: 11px;
-    height: 11px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background-color: #78BB93;
 }
 
 /* ===================================== */
+/* Solution 전체 페이드인 애니메이션 */
 
-/* Solution 스크롤 등장 애니메이션 */
-.solution-card {
+.solution-list {
     opacity: 0;
-    transform: translateY(45px);
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+    transition: opacity 1.5s ease;
 }
 
-/* 등장 상태 */
-.solution-section.show .solution-card {
+.solution-section.show .solution-list {
     opacity: 1;
-    transform: translateY(0);
 }
 
-/* 카드별 순차 등장 딜레이 */
-.solution-section.show .solution-card:nth-child(1) {
-    transition-delay: 0s;
-}
-
-.solution-section.show .solution-card:nth-child(2) {
-    transition-delay: 0.15s;
-}
-
-.solution-section.show .solution-card:nth-child(3) {
-    transition-delay: 0.3s;
-}
-
-.solution-section.show .solution-card:nth-child(4) {
-    transition-delay: 0.45s;
+/* 기존 카드 개별 등장 효과 제거 */
+.solution-card {
+    transform: none;
+    opacity: 1;
+    transition: none;
 }
 
 /* ===================================== */
-
 /* 앱 화면 흐름 섹션 */
+
 .screenflow-section {
-    padding: 120px 100px 180px;
+    padding: 110px 100px 150px;
 }
 
 .screenflow-intro {
-    margin-bottom: 90px;
+    margin-bottom: 72px;
 }
 
 .screenflow-intro h2 {
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 1.7;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.45;
     color: #1b1b1b;
 }
 
+/* 폰 리스트 */
 .screenflow-list {
-    max-width: 1440px;
+    max-width: 1180px;
     margin: 0 auto;
 
     display: flex;
@@ -1020,20 +1757,21 @@ header {
 }
 
 .screen-item {
-    width: 250px;
+    width: 205px;
     text-align: center;
 }
 
 .screen-item img {
-    width: 250px;
+    width: 205px;
     display: block;
 }
 
+/* 진행 점선 */
 .screenflow-progress {
     position: relative;
 
-    width: 1190px;
-    margin: 42px auto 34px;
+    width: 1040px;
+    margin: 36px auto 28px;
 
     display: flex;
     justify-content: space-between;
@@ -1054,8 +1792,8 @@ header {
 }
 
 .screenflow-progress span {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background-color: #78BB93;
 
@@ -1063,8 +1801,9 @@ header {
     z-index: 1;
 }
 
+/* 하단 라벨 */
 .screenflow-label-list {
-    max-width: 1440px;
+    max-width: 1180px;
     margin: 0 auto;
 
     display: flex;
@@ -1073,11 +1812,11 @@ header {
 }
 
 .screenflow-label-list p {
-    width: 250px;
+    width: 205px;
     text-align: center;
 
     font-family: 'GangwonEduAll', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
     color: #1b1b1b;
 }
@@ -1087,8 +1826,8 @@ header {
     opacity: 0;
     transform: translateY(45px);
     transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+        opacity 1s ease,
+        transform 1s ease;
 }
 
 .screenflow-section.show .screen-item {
@@ -1102,65 +1841,64 @@ header {
 }
 
 .screenflow-section.show .screen-item:nth-child(2) {
-    transition-delay: 0.15s;
+    transition-delay: 0.18s;
 }
 
 .screenflow-section.show .screen-item:nth-child(3) {
-    transition-delay: 0.3s;
+    transition-delay: 0.36s;
 }
 
 .screenflow-section.show .screen-item:nth-child(4) {
-    transition-delay: 0.45s;
+    transition-delay: 0.54s;
 }
 
 .screenflow-section.show .screen-item:nth-child(5) {
-    transition-delay: 0.6s;
+    transition-delay: 0.72s;
 }
 
-/* 아래 보조선/텍스트도 살짝 늦게 등장 */
+/* 아래 보조선/텍스트 등장 */
 .screenflow-progress,
 .screenflow-label-list {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(20px);
     transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
+        opacity 0.9s ease,
+        transform 0.9s ease;
 }
 
 .screenflow-section.show .screenflow-progress,
 .screenflow-section.show .screenflow-label-list {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.75s;
+    transition-delay: 0.9s;
 }
 
 /* ===================================== */
-
 /* 선택형 그림일기 제작 섹션 */
+
 .diary-create-section {
     height: 300vh;
     padding: 0 120px;
     position: relative;
 }
 
-/* 화면에 고정되는 영역 */
 .diary-create-sticky {
     position: sticky;
     top: 0;
 
     height: 100vh;
-    max-width: 1200px;
+    max-width: 980px;
     margin: 0 auto;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 180px;
+    gap: 110px;
 }
 
 /* 왼쪽 텍스트 */
 .diary-create-text {
-    width: 460px;
+    width: 340px;
     position: relative;
 }
 
@@ -1176,25 +1914,25 @@ header {
 }
 
 .diary-create-copy h2 {
-    font-size: 52px;
+    font-size: 30px;
     font-weight: 800;
-    line-height: 1.35;
+    line-height: 1.55;
     color: #1b1b1b;
-    margin-bottom: 50px;
+    margin-bottom: 32px;
 }
 
 .diary-create-copy p {
     font-family: 'GangwonEduAll', sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
-    line-height: 1.7;
+    line-height: 1.6;
     color: #1b1b1b;
 }
 
 /* 오른쪽 폰 */
 .diary-create-phone {
     position: relative;
-    width: 380px;
+    width: 260px;
 }
 
 .diary-phone-img {
@@ -1214,15 +1952,15 @@ header {
 .diary-create-dots {
     display: flex;
     flex-direction: column;
-    gap: 54px;
+    gap: 42px;
 }
 
 .diary-create-dots button {
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
 
     border-radius: 50%;
-    border: 1.5px solid #1b1b1b;
+    border: 1.3px solid #1b1b1b;
     background-color: transparent;
 
     cursor: pointer;
@@ -1249,11 +1987,11 @@ header {
 }
 
 /* ===================================== */
-
 /* 베네핏 섹션 */
+
 .benefit-section {
     background-color: #FFF8E9;
-    padding: 120px 120px 150px;
+    padding: 110px 120px 140px;
     text-align: center;
 }
 
@@ -1262,26 +2000,28 @@ header {
 }
 
 .benefit-intro h2 {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
-    line-height: 1.7;
+    line-height: 1.45;
     color: #1b1b1b;
 }
 
 /* 카드 전체 영역 */
 .benefit-flow {
     position: relative;
-    max-width: 1500px;
-    height: 600px;
-    margin: 0 auto;
+    max-width: 1280px;
+    height: 540px;
+
+    margin: -50px auto 0;
 }
 
 /* 점선 */
 .benefit-line {
     position: absolute;
-    width: 1220px;
+    width: 960px;
     left: 50%;
-    top: -10px;
+    top: 20px;
+
     transform: translateX(-50%);
     z-index: 0;
 }
@@ -1289,62 +2029,61 @@ header {
 /* 카드 공통 */
 .benefit-card {
     position: absolute;
-    width: 340px;
-    height: 440px;
+    width: 290px;
+    height: 450px;
 
-    background-color: transparent;
     border: none;
+    background: none;
     padding: 0;
 
-    text-align: center;
-    overflow: visible;
+    cursor: pointer;
     z-index: 1;
 }
 
-.benefit-card img {
-    width: 340px;
+/* 카드 이미지 공통 */
+.benefit-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
     display: block;
-    margin: 0;
+
+    opacity: 0;
+    transition: opacity 0.6s ease;
 }
 
-/* 카드 안 제목 */
-.benefit-card h3 {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 170px;
-
-    font-family: 'Pretendard Variable', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.4;
-    color: #78BB93;
-
-    margin: 0;
+.benefit-img.active {
+    opacity: 1;
 }
 
-/* 카드 안 설명 */
-.benefit-card p {
-    position: absolute;
+/* 카드 개별 위치 */
+.benefit-card-1 {
     left: 0;
+    top: 120px;
+}
+
+.benefit-card-2 {
+    left: 330px;
+    top: 210px;
+}
+
+.benefit-card-3 {
+    left: 660px;
+    top: 140px;
+}
+
+.benefit-card-4 {
     right: 0;
-    bottom: 86px;
-
-    font-family: 'Pretendard Variable', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.65;
-    color: #1b1b1b;
-
-    margin: 0;
+    top: 190px;
 }
 
 /* 번호 공통 */
 .benefit-number {
     position: absolute;
 
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 
     background-color: #78BB93;
@@ -1355,40 +2094,20 @@ header {
     align-items: center;
 
     font-size: 21px;
-    font-weight: 500;
-    z-index: 3;
-}
+    font-weight: 400;
 
-/* 카드 개별 위치 */
-.benefit-card-1 {
-    left: 0;
-    top: 105px;
-}
-
-.benefit-card-2 {
-    left: 390px;
-    top: 205px;
-}
-
-.benefit-card-3 {
-    left: 780px;
-    top: 120px;
-}
-
-.benefit-card-4 {
-    right: 0;
-    top: 200px;
+    z-index: 5;
 }
 
 /* 번호 개별 위치 */
 .benefit-card-1 .benefit-number {
     top: -70px;
-    left: 44%;
+    left: 57%;
     transform: translateX(-50%);
 }
 
 .benefit-card-2 .benefit-number {
-    top: -68px;
+    top: -85px;
     left: 48%;
     transform: translateX(-50%);
 }
@@ -1400,18 +2119,35 @@ header {
 }
 
 .benefit-card-4 .benefit-number {
-    top: -100px;
+    top: -75px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* 베네핏 카드 호버 효과 */
-.benefit-card {
-    transition: transform 0.3s ease;
+/* 베네핏1 아래 클릭 유도 문구 */
+.benefit-guide-text {
+    position: absolute;
+    left: 50%;
+    top: 88%;
+
+    width: 220px;
+
+    transform: translateX(-50%) translateY(20px);
+    opacity: 0;
+
+    font-family: 'GangwonEduAll', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #757575;
+
+    transition:
+        opacity 0.8s ease 0.8s,
+        transform 0.8s ease 0.8s;
 }
 
-.benefit-card:hover {
-    transform: translateY(-10px);
+.benefit-section.show .benefit-guide-text {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 /* ===================================== */
@@ -1654,3 +2390,8 @@ header {
     font-size: 20px;
     font-weight: 500;
 }
+
+
+/* .story-section .story-item-3 p {
+    outline: 5px solid red !important;
+} */
