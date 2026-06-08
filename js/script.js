@@ -90,8 +90,13 @@ const diaryCopies = document.querySelectorAll(".diary-create-copy");
 const diaryPhones = document.querySelectorAll(".diary-phone-img");
 const diaryDots = document.querySelectorAll(".diary-create-dots button");
 
+let currentDiaryStep = -1;
+
 function changeDiaryStep(stepIndex) {
     if (!diaryCopies.length || !diaryPhones.length || !diaryDots.length) return;
+    if (currentDiaryStep === stepIndex) return;
+
+    currentDiaryStep = stepIndex;
 
     diaryCopies.forEach(function(copy) {
         copy.classList.remove("active");
@@ -110,7 +115,6 @@ function changeDiaryStep(stepIndex) {
     diaryDots[stepIndex].classList.add("active");
 }
 
-
 window.addEventListener("scroll", function() {
     if (!diarySection) return;
 
@@ -123,16 +127,25 @@ window.addEventListener("scroll", function() {
     const end = sectionTop + sectionHeight - windowHeight;
     const totalScroll = end - start;
 
-    if (scrollY < start || scrollY > end) return;
+    if (scrollY < start) {
+        changeDiaryStep(0);
+        return;
+    }
+
+    if (scrollY > end) {
+        changeDiaryStep(2);
+        return;
+    }
+
     if (totalScroll <= 0) return;
 
     const progress = (scrollY - start) / totalScroll;
 
     let stepIndex = 0;
 
-    if (progress < 0.33) {
+    if (progress < 0.38) {
         stepIndex = 0;
-    } else if (progress < 0.66) {
+    } else if (progress < 0.68) {
         stepIndex = 1;
     } else {
         stepIndex = 2;
@@ -1106,3 +1119,27 @@ benefitCards.forEach(function(card) {
         resultImg.classList.toggle("active");
     });
 });
+
+
+
+// 탑 버튼
+const topButton = document.querySelector(".top-button");
+
+window.addEventListener("scroll", function() {
+    if (!topButton) return;
+
+    if (window.scrollY > 300) {
+        topButton.classList.add("show");
+    } else {
+        topButton.classList.remove("show");
+    }
+});
+
+if (topButton) {
+    topButton.addEventListener("click", function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
