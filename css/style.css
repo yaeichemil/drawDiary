@@ -102,9 +102,11 @@ header {
 /* 메인 화면 (텍스트 / 그림) */
 .main-section {
     min-height: 680px;
-    padding: 40px 100px;
+    /* padding: 40px 100px; */
+    padding: 40px 6vw;
     display: flex;
-    gap: 90px;
+    /* gap: 90px; */
+    gap: clamp(40px, 5vw, 90px);
     align-items: flex-start;
     overflow: visible;
 }
@@ -200,12 +202,15 @@ header {
 /* 키 비주얼 (배경 + 캐릭터) */
 .main-image {
     margin-top: -70px;
-    margin-left: 100px;
+    margin-left: clamp(20px, 5vw, 100px);
     flex-shrink: 0;
 
     position: relative;
-    width: 740px;
-    height: 530px;
+
+    width: clamp(620px, 48vw, 740px);
+    height: auto;
+
+    aspect-ratio: 740 / 530;
 
     z-index: 2;
 }
