@@ -104,6 +104,10 @@ function changeDiaryStep(stepIndex) {
 
     diaryPhones.forEach(function(phone) {
         phone.classList.remove("active");
+
+        if (phone.pause) {
+            phone.pause();
+        }
     });
 
     diaryDots.forEach(function(dot) {
@@ -113,6 +117,11 @@ function changeDiaryStep(stepIndex) {
     diaryCopies[stepIndex].classList.add("active");
     diaryPhones[stepIndex].classList.add("active");
     diaryDots[stepIndex].classList.add("active");
+
+    if (diaryPhones[stepIndex].play) {
+        diaryPhones[stepIndex].currentTime = 0;
+        diaryPhones[stepIndex].play();
+    }
 }
 
 window.addEventListener("scroll", function() {
