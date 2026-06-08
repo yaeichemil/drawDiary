@@ -144,15 +144,57 @@ header {
     margin-bottom: 65px;
 }
 
+/* 앱 다운로드 버튼 */
 .download-btn {
+    position: relative;
+
     border: none;
     background: none;
     cursor: pointer;
     width: fit-content;
+
+    transition: transform 0.3s ease;
+}
+
+.download-btn::before {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    bottom: -8px;
+
+    width: 175px;
+    height: 28px;
+    border-radius: 999px;
+
+    background: rgba(73, 130, 96, 0.28);
+    filter: blur(10px);
+
+    opacity: 0;
+    transform: translateX(-50%) scale(0.9);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+
+    z-index: -1;
+}
+
+/* .download-btn:hover {
+    transform: translateY(-3px);
+} */
+
+.download-btn:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
 }
 
 .download-btn img {
+    position: relative;
+    z-index: 1;
+
     width: 200px;
+    display: block;
 }
 
 /* 키 비주얼 (배경 + 캐릭터) */
